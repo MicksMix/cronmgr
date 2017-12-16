@@ -15,7 +15,7 @@ uses
 begin
   RequireDerivedFormResource:=True;
   Application.Initialize;
-  Application.CreateForm(TFormMain, FormMain);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
 
