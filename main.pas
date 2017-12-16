@@ -67,18 +67,25 @@ begin
   t := AnsiLowerCase(t);
 
   case t of
-       'shell' : SynEdit1.Highlighter := SynUNIXShellScriptSyn1;
-       'perl' : SynEdit1.Highlighter := SynPerlSyn1;
-       'python' : SynEdit1.Highlighter := SynPythonSyn1;
-       'php' : SynEdit1.Highlighter := SynPHPSyn1;
-       'javascript' : SynEdit1.Highlighter := SynJScriptSyn1;
+    'shell': SynEdit1.Highlighter := SynUNIXShellScriptSyn1;
+    'perl': SynEdit1.Highlighter := SynPerlSyn1;
+    'python': SynEdit1.Highlighter := SynPythonSyn1;
+    'php': SynEdit1.Highlighter := SynPHPSyn1;
+    'javascript': SynEdit1.Highlighter := SynJScriptSyn1;
   end;
 end;
 
 procedure TForm1.ShellTreeView1Collapsing(Sender: TObject; Node: TTreeNode;
   var AllowCollapse: boolean);
 begin
-  AllowCollapse := False;
+  if Node.Level = 0 then
+  begin
+    AllowCollapse := False;
+  end
+  else
+  begin
+    AllowCollapse := True;
+  end;
 end;
 
 procedure TForm1.ShellTreeView1SelectionChanged(Sender: TObject);
